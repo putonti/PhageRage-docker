@@ -17,6 +17,8 @@ ADD requirements.txt requirements.txt
 RUN python3 -m pip install biopython
 
 RUN git clone https://github.com/jlbren/phage-rage
+RUN mv phage-rage/* /
+
 RUN git clone https://github.com/voutcn/megahit.git
 #RUN tar xzf diamond.tgz && tar xzf spades.tgz && tar xzf velvet.tgz && unzip pauda.zip
 #RUN tar xzf blast.tgz
@@ -28,6 +30,7 @@ RUN mv velvet/velvet_1.2.10/* velvet/
 RUN rm -r velvet/velvet_1.2.10
 
 RUN unzip pauda.zip
+RUN rm pauda.zip
 RUN pip3 install --upgrade pip
 RUN pip3 install -r requirements.txt
 
