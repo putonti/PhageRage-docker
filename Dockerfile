@@ -6,16 +6,17 @@ ADD diamond-linux64.tar.gz diamond
 ADD pauda-1.0.1.zip pauda.zip
 ADD SPAdes-3.10.1-Linux.tar.gz spades
 ADD velvet_1.2.10.tgz velvet
-ADD vassemble.py vassemble.py
-ADD virusland.py virusland.py
-ADD vmap.py vmap.py
-ADD vparse.py vparse.py
-ADD vutils.py vutils.py
+#ADD vassemble.py vassemble.py
+#ADD virusland.py virusland.py
+#ADD vmap.py vmap.py
+#ADD vparse.py vparse.py
+#ADD vutils.py vutils.py
 ADD requirements.txt requirements.txt
 
 #attempt to install biopython
 RUN python3 -m pip install biopython
 
+RUN git clone https://github.com/jlbren/phage-rage
 RUN git clone https://github.com/voutcn/megahit.git
 #RUN tar xzf diamond.tgz && tar xzf spades.tgz && tar xzf velvet.tgz && unzip pauda.zip
 #RUN tar xzf blast.tgz
