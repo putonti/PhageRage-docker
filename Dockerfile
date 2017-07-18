@@ -25,6 +25,6 @@ RUN pip3 install -r requirements.txt
 
 RUN cd megahit && make
 ENV PATH /spades:/megahit:/blast:/pauda:/velvet:$PATH
-CMD ["python3", "virusland.py", "-h"]
+#CMD ["python3", "virusland.py", "-h"]
 #RUN which python3
 #sudo docker run -i -t thatzopoulos/phage_rage
