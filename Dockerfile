@@ -22,7 +22,7 @@ RUN git clone https://github.com/voutcn/megahit.git
 #RUN mv SPAdes-3.10.1-Linux spades && mv ncbi-blast-2.6.0+-src.tar.gz blast && mv pauda-1.0.1 pauda && mv velvet_1.2.10 velvet
 
 RUN mv spades/SPAdes-3.10.1-Linux/* spades/
-RUN rm -r spades/SPAdes-3.10.-Linux
+RUN rm -r spades/SPAdes-3.10.1-Linux
 RUN mv velvet/velvet_1.2.10/* velvet/
 RUN rm -r velvet/velvet_1.2.10
 RUN mv diamond/diamond/* diamond/
@@ -36,4 +36,4 @@ RUN cd megahit && make
 ENV PATH /diamond:/spades/bin:/megahit:/blast:/pauda-1.0.1/bin:/velvet:$PATH
 #CMD ["python3", "virusland.py", "-h"]
 #RUN which python3
-#sudo docker run -i -t thatzopoulos/phage_rage
+#sudo docker run -i -t thatzopoulos/phage_rage`
