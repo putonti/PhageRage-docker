@@ -17,9 +17,9 @@ ADD requirements.txt requirements.txt
 RUN python3 -m pip install biopython
 
 RUN git clone https://github.com/voutcn/megahit.git
-RUN tar xzf diamond.tgz && tar xzf spades.tgz && tar xzf velvet.tgz && unzip pauda.zip
+#RUN tar xzf diamond.tgz && tar xzf spades.tgz && tar xzf velvet.tgz && unzip pauda.zip
 #RUN tar xzf blast.tgz
-RUN mv SPAdes-3.10.1-Linux spades && mv ncbi-blast-2.6.0+-src.tar.gz blast && mv pauda-1.0.1 pauda && mv velvet_1.2.10 velvet
+#RUN mv SPAdes-3.10.1-Linux spades && mv ncbi-blast-2.6.0+-src.tar.gz blast && mv pauda-1.0.1 pauda && mv velvet_1.2.10 velvet
 RUN pip3 install --upgrade pip
 RUN pip3 install -r requirements.txt
 
