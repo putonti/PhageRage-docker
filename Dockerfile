@@ -3,7 +3,6 @@ FROM ubuntu
 RUN apt-get update && apt-get install -y python3 python3-dev gcc g++ unzip make git bzip2 zlib1g-dev ncurses-dev wget python3-pip ipython3 build-essential python3-pkg-resources python3-setuptools ncbi-blast+
 ADD diamond-linux64.tar.gz diamond
 #ADD ncbi-blast-2.6.0+-src.tar.gz blast
-ADD pauda-1.0.1.zip pauda.zip
 ADD SPAdes-3.10.1-Linux.tar.gz spades
 ADD velvet_1.2.10.tgz velvet
 #ADD vassemble.py vassemble.py
@@ -29,8 +28,6 @@ RUN rm -r spades/SPAdes-3.10.1-Linux
 RUN mv velvet/velvet_1.2.10/* velvet/
 RUN rm -r velvet/velvet_1.2.10
 
-RUN unzip pauda.zip
-RUN rm pauda.zip
 RUN pip3 install --upgrade pip
 RUN pip3 install -r requirements.txt
 
