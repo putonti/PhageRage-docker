@@ -31,8 +31,10 @@ RUN rm -r velvet/velvet_1.2.10
 RUN pip3 install --upgrade pip
 RUN pip3 install -r requirements.txt
 
-RUN cd velvet && make
+
 RUN cd megahit && make
+RUN cd velvet && make
+
 ENV PATH /diamond:/spades/bin:/megahit:/blast:/pauda-1.0.1/bin:/velvet:$PATH
 #CMD ["python3", "virusland.py", "-h"]
 #RUN which python3
