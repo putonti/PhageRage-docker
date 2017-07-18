@@ -25,8 +25,8 @@ RUN mv spades/SPAdes-3.10.1-Linux/* spades/
 RUN rm -r spades/SPAdes-3.10.1-Linux
 RUN mv velvet/velvet_1.2.10/* velvet/
 RUN rm -r velvet/velvet_1.2.10
-RUN mv diamond/diamond/* diamond/
-RUN rm -r diamond/diamond
+#RUN mv diamond/diamond/* diamond/
+#RUN rm -r diamond/diamond
 
 RUN unzip pauda.zip
 RUN pip3 install --upgrade pip
