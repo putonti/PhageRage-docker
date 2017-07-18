@@ -25,13 +25,12 @@ RUN mv spades/SPAdes-3.10.1-Linux/* spades/
 RUN rm -r spades/SPAdes-3.10.1-Linux
 RUN mv velvet/velvet_1.2.10/* velvet/
 RUN rm -r velvet/velvet_1.2.10
-#RUN mv diamond/diamond/* diamond/
-#RUN rm -r diamond/diamond
 
 RUN unzip pauda.zip
 RUN pip3 install --upgrade pip
 RUN pip3 install -r requirements.txt
 
+RUN cd velvet && make
 RUN cd megahit && make
 ENV PATH /diamond:/spades/bin:/megahit:/blast:/pauda-1.0.1/bin:/velvet:$PATH
 #CMD ["python3", "virusland.py", "-h"]
