@@ -1,0 +1,7 @@
+#from within this folder
+sudo docker build -t phage_rage .
+
+#to run
+sudo docker run -i -t phage_rage
+
+#must add files to inputFolders before building as of now, working on changing this
