@@ -10,8 +10,9 @@ ADD velvet_1.2.10.tgz velvet
 #ADD vmap.py vmap.py
 #ADD vparse.py vparse.py
 #ADD vutils.py vutils.py
-ADD requirements.txt requirements.txt
+ADD inputFiles/ /inputFiles/
 
+ADD requirements.txt requirements.txt
 #attempt to install biopython
 RUN python3 -m pip install biopython
 
