@@ -42,9 +42,9 @@ RUN git clone https://github.com/jlbren/phage-rage
 RUN mv phage-rage/* /
 
 RUN git clone https://github.com/voutcn/megahit.git
-#RUN tar xzf diamond.tgz && tar xzf spades.tgz && tar xzf velvet.tgz && unzip pauda.zip
+#RUN tar xzf diamond.tgz && tar xzf spades.tgz && tar xzf velvet.tgz
 #RUN tar xzf blast.tgz
-#RUN mv SPAdes-3.10.1-Linux spades && mv ncbi-blast-2.6.0+-src.tar.gz blast && mv pauda-1.0.1 pauda && mv velvet_1.2.10 velvet
+#RUN mv SPAdes-3.10.1-Linux spades && mv ncbi-blast-2.6.0+-src.tar.gz blast && mv velvet_1.2.10 velvet
 #GETORF Setup
 RUN wget ftp://emboss.open-bio.org/pub/EMBOSS/EMBOSS-6.6.0.tar.gz
 RUN tar xzf EMBOSS-6.6.0.tar.gz
@@ -68,10 +68,15 @@ RUN make
 RUN mv sickle /bin/
 WORKDIR /
 
-RUN mv spades/SPAdes-3.10.1-Linux/* spades/
-RUN rm -r spades/SPAdes-3.10.1-Linux
+#VELVET Setup
+ENV FOLDER=velvet_1.2.10
 RUN mv velvet/velvet_1.2.10/* velvet/
 RUN rm -r velvet/velvet_1.2.10
+RUN cd velvet && make
+cp velvet/velvet* /home/usr/bin
+
+RUN mv spades/SPAdes-3.10.1-Linux/* spades/
+RUN rm -r spades/SPAdes-3.10.1-Linux
 
 RUN pip3 install --upgrade pip
 RUN pip3 install -r requirements.txt
