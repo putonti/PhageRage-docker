@@ -73,8 +73,7 @@ ENV FOLDER=velvet_1.2.10
 RUN mv velvet/velvet_1.2.10/* velvet/
 RUN rm -r velvet/velvet_1.2.10
 RUN cd velvet && make
-RUN cp velvet/velvet* /home/usr/bin
-RUN cp velvet/velvet* /home/usr/bin
+RUN cp velvet/velvet* /usr/local/bin
 
 RUN mv spades/SPAdes-3.10.1-Linux/* spades/
 RUN rm -r spades/SPAdes-3.10.1-Linux
