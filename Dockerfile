@@ -17,7 +17,8 @@ ipython3 \
 build-essential \
 python3-pkg-resources \
 python3-setuptools \
-ncbi-blast+
+ncbi-blast+ \
+zlib1g-dev
 
 ADD diamond-linux64.tar.gz diamond
 #ADD ncbi-blast-2.6.0+-src.tar.gz blast
@@ -69,9 +70,8 @@ RUN mv sickle /bin/
 WORKDIR /
 
 #VELVET Setup
-ENV FOLDER=velvet_1.2.10
 RUN mv velvet/velvet_1.2.10/* velvet/
-RUN rm -r velvet/velvet_1.2.10
+#RUN rm -r velvet/velvet_1.2.10
 RUN cd velvet && make
 RUN cp velvet/velvet* /usr/local/bin
 
@@ -86,7 +86,8 @@ RUN cd megahit && make
 #RUN cd velvet && make
 
 ENV PATH /EMBOSS-6.6.0/scripts:/EMBOSS-6.6.0/emboss:/krona2.7/scripts:/diamond:/spades/bin:/megahit:/blast:/pauda-1.0.1/bin:/velvet:$PATH
-CMD ["python3", "virusland.py", "inputFiles/R1.fastq", "inputFiles/R2.fastq", "-pqa", "spades", "-m", "diamond", "-i", "all_gbk/", "-t", "12", "-o", "output_dir"]
+CMD [velveth]
+#CMD ["python3", "virusland.py", "inputFiles/R1.fastq", "inputFiles/R2.fastq", "-pqa", "spades", "-m", "diamond", "-i", "all_gbk/", "-t", "12", "-o", "output_dir"]
 #RUN which python3
 #sudo docker run -i -t thatzopoulos/phage_rage`
 #ENTRYPOINT ["python3","virusland.py"]
