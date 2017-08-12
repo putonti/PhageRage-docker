@@ -73,7 +73,12 @@ WORKDIR /
 RUN mv velvet/velvet_1.2.10/* velvet/
 #RUN rm -r velvet/velvet_1.2.10
 RUN cd velvet && make
-RUN cp velvet/velvet* /usr/local/bin
+RUN cp -r velvet/velvet* /usr/local/bin
+
+#Lambda Setup
+RUN wget https://github.com/seqan/lambda/releases/download/lambda-v1.9.3/lambda-1.9.3-Linux.x86_64.tar.xz
+RUN tar xvf lambda-1.9.3-Linux.x86_64.tar.xz
+RUN cp -r lambda-1.9.3-Linux.x86_64/bin/* /usr/local/bin
 
 RUN mv spades/SPAdes-3.10.1-Linux/* spades/
 RUN rm -r spades/SPAdes-3.10.1-Linux
@@ -85,9 +90,8 @@ RUN pip3 install -r requirements.txt
 RUN cd megahit && make
 #RUN cd velvet && make
 
-ENV PATH /EMBOSS-6.6.0/scripts:/EMBOSS-6.6.0/emboss:/krona2.7/scripts:/diamond:/spades/bin:/megahit:/blast:/pauda-1.0.1/bin:/velvet:$PATH
-CMD [velveth]
-#CMD ["python3", "virusland.py", "inputFiles/R1.fastq", "inputFiles/R2.fastq", "-pqa", "spades", "-m", "diamond", "-i", "all_gbk/", "-t", "12", "-o", "output_dir"]
+ENV PATH /EMBOSS-6.6.0/scripts:/EMBOSS-6.6.0/emboss:/krona2.7/scripts:/diamond:/spades/bin:/megahit:/blast:/pauda-1.0.1/bin:/velvet:/lambda-1.9.3-Linux-x86_64/bin:$PATH
+CMD ["python3", "virusland.py", "inputFiles/R1.fastq", "inputFiles/R2.fastq", "-pqa", "spades", "-m", "lambda", "-i", "all_gbk/", "-t", "12", "-o", "output_dir"]
 #RUN which python3
 #sudo docker run -i -t thatzopoulos/phage_rage`
 #ENTRYPOINT ["python3","virusland.py"]
