@@ -76,7 +76,7 @@ RUN cd velvet && make
 RUN cp -r velvet/velvet* /usr/local/bin
 
 #Lambda Setup
-RUN wget https://github.com/seqan/lambda/releases/download/lambda-v1.9.3/lambda-1.9.3-Linux.x86_64.tar.xz
+RUN wget https://github.com/seqan/lambda/releases/download/lambda-v1.9.3/lambda-1.9.3-Linux-x86_64.tar.xz
 RUN tar xvf lambda-1.9.3-Linux.x86_64.tar.xz
 RUN cp -r lambda-1.9.3-Linux.x86_64/bin/* /usr/local/bin
 
