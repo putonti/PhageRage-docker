@@ -21,14 +21,8 @@ ncbi-blast+ \
 zlib1g-dev
 
 ADD diamond-linux64.tar.gz diamond
-#ADD ncbi-blast-2.6.0+-src.tar.gz blast
 ADD SPAdes-3.10.1-Linux.tar.gz spades
 ADD velvet_1.2.10.tgz velvet
-#ADD vassemble.py vassemble.py
-#ADD virusland.py virusland.py
-#ADD vmap.py vmap.py
-#ADD vparse.py vparse.py
-#ADD vutils.py vutils.py
 
 #FOR TESTING PURPOSES ONLY
 ADD inputFiles/ /inputFiles/
@@ -77,17 +71,17 @@ RUN cp -r velvet/velvet* /usr/local/bin
 
 #Lambda Setup
 RUN wget https://github.com/seqan/lambda/releases/download/lambda-v1.9.3/lambda-1.9.3-Linux-x86_64.tar.xz
-RUN tar xvf lambda-1.9.3-Linux.x86_64.tar.xz
-RUN cp -r lambda-1.9.3-Linux.x86_64/bin/* /usr/local/bin
+RUN tar xvf lambda-1.9.3-Linux-x86_64.tar.xz
+RUN cp -r lambda-1.9.3-Linux-x86_64/bin/* /usr/local/bin
 
 #MEGAHIT Setup
-ENV MEGAHIT_DIR /tmp/megahit
+ENV MEGAHIT_DIR /megahit
 ENV MEGAHIT_TAR https://github.com/voutcn/megahit/archive/v0.1.2.tar.gz
 RUN mkdir ${MEGAHIT_DIR}
 RUN cd ${MEGAHIT_DIR} &&\
     wget --no-check-certificate ${MEGAHIT_TAR} --output-document - |\
     tar xzf - --directory . --strip-components=1 &&\
-    make
+    make -j
 
 RUN mv spades/SPAdes-3.10.1-Linux/* spades/
 RUN rm -r spades/SPAdes-3.10.1-Linux
