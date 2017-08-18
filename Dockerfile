@@ -25,9 +25,9 @@ ADD SPAdes-3.10.1-Linux.tar.gz spades
 ADD velvet_1.2.10.tgz velvet
 
 #FOR TESTING PURPOSES ONLY
-ADD inputFiles/ /inputFiles/
 ADD all_gbk/ all_gbk/
 
+ADD inputFiles/ /inputFiles/
 
 ADD requirements.txt requirements.txt
 #attempt to install biopython
@@ -75,6 +75,7 @@ RUN tar xvf lambda-1.9.3-Linux-x86_64.tar.xz
 RUN cp -r lambda-1.9.3-Linux-x86_64/bin/* /usr/local/bin
 
 #MEGAHIT Setup
+<<<<<<< HEAD
 ENV MEGAHIT_DIR /megahit
 ENV MEGAHIT_TAR https://github.com/voutcn/megahit/archive/v0.1.2.tar.gz
 RUN mkdir ${MEGAHIT_DIR}
@@ -82,6 +83,11 @@ RUN cd ${MEGAHIT_DIR} &&\
     wget --no-check-certificate ${MEGAHIT_TAR} --output-document - |\
     tar xzf - --directory . --strip-components=1 &&\
     make -j
+=======
+RUN git clone https://github.com/voutcn/megahit.git
+RUN cd megahit && make -j
+
+>>>>>>> master
 
 RUN mv spades/SPAdes-3.10.1-Linux/* spades/
 RUN rm -r spades/SPAdes-3.10.1-Linux
@@ -90,12 +96,6 @@ RUN pip3 install --upgrade pip
 RUN pip3 install -r requirements.txt
 
 
-#RUN cd megahit && make
-#RUN cd velvet && make
-
 ENV PATH /EMBOSS-6.6.0/scripts:/EMBOSS-6.6.0/emboss:/krona2.7/scripts:/diamond:/spades/bin:/megahit:/blast:/pauda-1.0.1/bin:/velvet:/lambda-1.9.3-Linux-x86_64/bin:$PATH
-CMD ["python3", "virusland.py", "inputFiles/R1.fastq", "inputFiles/R2.fastq", "-pqa", "megahit", "-m", "diamond", "-i", "all_gbk/", "-t", "12", "-o", "output_dir"]
-#RUN which python3
-#sudo docker run -i -t thatzopoulos/phage_rage`
+CMD ["python3", "virusland.py", "inputFiles/R1.fastq", "inputFiles/R2.fastq", "-pqa", "megahit", "-m", "lambda", "-i", "all_gbk/", "-t", "12", "-o", "output_dir"]
 #ENTRYPOINT ["python3","virusland.py"]
-#CMD ["--help"]
