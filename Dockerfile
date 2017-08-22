@@ -23,23 +23,15 @@ zlib1g-dev
 ADD diamond-linux64.tar.gz diamond
 ADD SPAdes-3.10.1-Linux.tar.gz spades
 ADD velvet_1.2.10.tgz velvet
-
-#FOR TESTING PURPOSES ONLY
-ADD all_gbk/ all_gbk/
-
 ADD inputFiles/ /inputFiles/
-
 ADD requirements.txt requirements.txt
-#attempt to install biopython
+
 RUN python3 -m pip install biopython
 
+#Get Phage Rage
 RUN git clone https://github.com/jlbren/phage-rage
 RUN mv phage-rage/* /
 
-#RUN git clone https://github.com/voutcn/megahit.git
-#RUN tar xzf diamond.tgz && tar xzf spades.tgz && tar xzf velvet.tgz
-#RUN tar xzf blast.tgz
-#RUN mv SPAdes-3.10.1-Linux spades && mv ncbi-blast-2.6.0+-src.tar.gz blast && mv velvet_1.2.10 velvet
 #GETORF Setup
 RUN wget ftp://emboss.open-bio.org/pub/EMBOSS/EMBOSS-6.6.0.tar.gz
 RUN tar xzf EMBOSS-6.6.0.tar.gz
@@ -47,7 +39,6 @@ WORKDIR EMBOSS-6.6.0
 RUN ./configure --without-x
 RUN make
 WORKDIR /
-
 
 #KRONA Setup
 RUN wget https://github.com/marbl/Krona/releases/download/v2.7/KronaTools-2.7.tar
@@ -65,7 +56,6 @@ WORKDIR /
 
 #VELVET Setup
 RUN mv velvet/velvet_1.2.10/* velvet/
-#RUN rm -r velvet/velvet_1.2.10
 RUN cd velvet && make
 RUN cp -r velvet/velvet* /usr/local/bin
 
@@ -75,20 +65,10 @@ RUN tar xvf lambda-1.9.3-Linux-x86_64.tar.xz
 RUN cp -r lambda-1.9.3-Linux-x86_64/bin/* /usr/local/bin
 
 #MEGAHIT Setup
-<<<<<<< HEAD
-ENV MEGAHIT_DIR /megahit
-ENV MEGAHIT_TAR https://github.com/voutcn/megahit/archive/v0.1.2.tar.gz
-RUN mkdir ${MEGAHIT_DIR}
-RUN cd ${MEGAHIT_DIR} &&\
-    wget --no-check-certificate ${MEGAHIT_TAR} --output-document - |\
-    tar xzf - --directory . --strip-components=1 &&\
-    make -j
-=======
 RUN git clone https://github.com/voutcn/megahit.git
 RUN cd megahit && make -j
 
->>>>>>> master
-
+#Spades Setup
 RUN mv spades/SPAdes-3.10.1-Linux/* spades/
 RUN rm -r spades/SPAdes-3.10.1-Linux
 
