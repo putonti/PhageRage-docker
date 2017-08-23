@@ -29,12 +29,9 @@ Docker is the only prerequisite for this program to run, all other dependencies 
 
 * Jonathon Brenner
 * Thomas Hatzopoulos
+* Zach Romer
 * Catherine Putonti
 
 ## License
 
 This project is licensed under the TODO
-
-## Acknowledgments
-
-* TODO
