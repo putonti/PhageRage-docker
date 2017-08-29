@@ -1,6 +1,6 @@
 # PhageRage-Docker
 
-Advances in sequencing technology provide the opportunity to explore viral diversity in a variety of ecological niches. Analysis of complex viral samples presents unique bioinformatic challenges, punctuated by the paucity of available viral genomes relative to their richness in the environment. VirusLand has been developed for the comprehensive examination of viral metagenomic data. VirusLand is a UNIX-based solution for the comprehensive examination of viral metagenomic data from assembly through analysis. It was developed with agility in mind; tools databases and modules can be customized and controlled by the user (even those without any programming savvy). VirusLand can also be run locally.
+Advances in sequencing technology provide the opportunity to explore viral diversity in a variety of ecological niches. Analysis of complex viral samples presents unique bioinformatic challenges, punctuated by the paucity of available viral genomes relative to their richness in the environment. PhageRage has been developed for the comprehensive examination of viral metagenomic data. PhageRage is a UNIX-based solution for the comprehensive examination of viral metagenomic data from assembly through analysis. It was developed with agility in mind; tools databases and modules can be customized and controlled by the user (even those without any programming savvy). PhageRage can also be run locally.
 
 ## Getting Started
 
