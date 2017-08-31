@@ -6,14 +6,14 @@ Advances in sequencing technology provide the opportunity to explore viral diver
 
 Clone Project
 
-Move files that you want to run to inputFiles folder prior to building the docker image
+Move files that you want to run to inputFiles and all_gbk folders prior to building the docker image
 
 From within the project folder run:
 ```python
 sudo docker build -t phage_rage .
 ```
 ```python
-sudo docker run -i -t phage_rage
+sudo docker run -v /pathToLocalFolder/runName:/phageRageDockerOutputFolder -i -t phage_rage
 ```
 
 To pull up phageRage help for parameters while in the docker container:
