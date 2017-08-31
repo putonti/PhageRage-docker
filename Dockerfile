@@ -24,6 +24,7 @@ ADD diamond-linux64.tar.gz diamond
 ADD SPAdes-3.10.1-Linux.tar.gz spades
 ADD velvet_1.2.10.tgz velvet
 ADD inputFiles/ /inputFiles/
+ADD all_gbk/ /all_gbk/
 ADD requirements.txt requirements.txt
 
 RUN python3 -m pip install biopython
