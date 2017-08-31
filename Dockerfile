@@ -77,5 +77,5 @@ RUN pip3 install -r requirements.txt
 
 
 ENV PATH /EMBOSS-6.6.0/scripts:/EMBOSS-6.6.0/emboss:/krona2.7/scripts:/diamond:/spades/bin:/megahit:/blast:/pauda-1.0.1/bin:/velvet:/lambda-1.9.3-Linux-x86_64/bin:$PATH
-CMD ["python3", "virusland.py", "inputFiles/R1.fastq", "inputFiles/R2.fastq", "-pqa", "megahit", "-m", "lambda", "-i", "all_gbk/", "-t", "12", "-o", "output_dir"]
+#CMD ["python3", "virusland.py", "inputFiles/R1.fastq", "inputFiles/R2.fastq", "-pqa", "megahit", "-m", "lambda", "-i", "all_gbk/", "-t", "12", "-o", "output_dir"]
 #ENTRYPOINT ["python3","virusland.py"]
