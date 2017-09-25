@@ -18,7 +18,7 @@ sudo docker run -v /pathToLocalFolder/runName:/phageRageDockerOutputFolder -i -t
 
 To pull up phageRage help for parameters while in the docker container:
 ```python
-python3 virusland.py -h
+python3 phage-rage.py -h
 ```
 
 ### Prerequisites
